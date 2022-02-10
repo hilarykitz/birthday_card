@@ -25,7 +25,7 @@ export default function Home() {
       <Head>
         <title>Birthday Dinners</title>
         <meta name="description" content="Let me tell u what to eat" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <div
@@ -59,19 +59,14 @@ export default function Home() {
             name="wish"
             placeholder="What do u want on your card?"
             className={styles.input}
+            onBlur={(e) => onImageSubmit(e.target.value)}
           />
         </form>
 
         <hr />
 
         {userSubmittedCard && (
-          <div
-            style={{
-              background: "#fbd5dce0",
-              padding: "20px",
-              borderRadius: "3px",
-            }}
-          >
+          <div className={styles.card}>
             <h3>
               WHOA that is a really good choice!
               <br />

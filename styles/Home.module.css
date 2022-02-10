@@ -27,28 +27,6 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
 .description {
   margin: 1rem 0;
   line-height: 1.5;
@@ -69,6 +47,14 @@
   padding: 5px 10px;
   font-size: 20px;
   box-shadow: 4px 4px 1px pink, 8px 8px 1px orange, 12px 12px 1px yellow;
+}
+
+.card {
+  box-shadow: 4px -4px 1px pink, 8px -8px 1px orange, 12px -12px 1px yellow;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 3px;
+  margin-top: 3rem;
 }
 
 @media (max-width: 600px) {

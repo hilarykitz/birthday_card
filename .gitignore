@@ -3,3 +3,4 @@ dist
 .vscode
 .env
 .next
+.DS_Store

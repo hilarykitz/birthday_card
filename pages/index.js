@@ -39,13 +39,14 @@ export default function Home() {
         }}
       >
         {images &&
-          images.map(({ media, alt }, i) => (
+          images.map(({ media, content_description }, i) => (
             <Image
               key={i}
               src={media[0].gif.url}
               width={imgSizer(window.innerWidth)}
               height={imgSizer(window.innerWidth)}
-              alt={alt}
+              alt={content_description}
+              loading="eager"
             />
           ))}
       </div>

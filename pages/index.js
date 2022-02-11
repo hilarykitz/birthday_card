@@ -84,7 +84,7 @@ export default function Home() {
             <p>Your friends love you!</p>
 
             <button onClick={() => setDinner(getDinner(true))}>
-              I don't like {dinner} :(
+              I don't want {dinner} :(
             </button>
           </div>
         )}

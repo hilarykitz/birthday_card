@@ -9,16 +9,18 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const [images, setImages] = useState();
   const [userSubmittedCard, setUserSubmittedCard] = useState(false);
+  const [dinner, setDinner] = useState(getDinner());
 
   const onImageSubmit = (query) => {
-    console.log(query, "??");
     setUserSubmittedCard(true);
     getBdayImage(query, setImages);
   };
 
   useEffect(() => {
-    getBdayImage("happy birthday", setImages);
+    getBdayImage(["happy birthday", "flowers", "balloons", "cake"], setImages);
   }, []);
+
+  const imgSizer = (w) => (w < 860 ? w / 2 : w / 4);
 
   return (
     <div className={styles.container}>
@@ -41,8 +43,8 @@ export default function Home() {
             <Image
               key={i}
               src={media[0].gif.url}
-              width={window.innerWidth / 4}
-              height={window.innerWidth / 4}
+              width={imgSizer(window.innerWidth)}
+              height={imgSizer(window.innerWidth)}
               alt={alt}
             />
           ))}
@@ -54,27 +56,35 @@ export default function Home() {
             e.preventDefault() || onImageSubmit(e.target[0].value)
           }
         >
+          <p style={{ background: "rgba(255,255,255,0.8)" }}>
+            <small>
+              <i>You can make a list of wishes ;)</i>
+            </small>
+          </p>
           <input
             type="text"
             name="wish"
             placeholder="What do u want on your card?"
             className={styles.input}
-            onBlur={(e) => onImageSubmit(e.target.value)}
+            onBlur={(e) => onImageSubmit([e.target.value])}
           />
         </form>
 
         <hr />
-
         {userSubmittedCard && (
           <div className={styles.card}>
             <h3>
               WHOA that is a really good choice!
               <br />
-              The algorithm has processed this, and you should have
-              <h1 style={{ color: "magenta" }}>{getDinner()}</h1>for your
-              birthday dinner.
+              The algorithm has processed this.
             </h3>
+            <h1 className={styles.dinnerChoice}>Have {dinner}</h1>
+            <h3>for your birthday dinner.</h3>
             <p>Your friends love you!</p>
+
+            <button onClick={() => setDinner(getDinner(true))}>
+              I don't like {dinner} :(
+            </button>
           </div>
         )}
       </main>

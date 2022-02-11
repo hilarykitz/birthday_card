@@ -14,8 +14,7 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  padding: 1rem 0;
   justify-content: center;
   align-items: center;
 }
@@ -41,20 +40,51 @@
 }
 
 .input {
-  min-width: 300px;
+  min-width: 320px;
+  min-height: 80px;
   border-radius: 3px;
   border: 2px pink solid;
-  padding: 5px 10px;
+  padding: 10px 15px;
+
   font-size: 20px;
-  box-shadow: 4px 4px 1px pink, 8px 8px 1px orange, 12px 12px 1px yellow;
+  box-shadow: 8px 8px 1px pink, 16px 16px 1px orange, 24px 24px 1px yellow;
+  -webkit-box-shadow: 8px 8px 1px pink, 16px 16px 1px orange,
+    24px 24px 1px yellow;
+  transition: 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .card {
   box-shadow: 4px -4px 1px pink, 8px -8px 1px orange, 12px -12px 1px yellow;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
+  -webkit-box-shadow: 4px -4px 1px pink, 8px -8px 1px orange,
+    12px -12px 1px yellow;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 12px;
   border-radius: 3px;
   margin-top: 3rem;
+  animation: fadeIn 400ms ease-in;
+}
+
+.dinnerChoice {
+  margin: 1rem;
+  color: magenta;
 }
 
 @media (max-width: 600px) {

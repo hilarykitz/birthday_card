@@ -1,4 +1,4 @@
-export const getBdayImage = async (query, setImages, setSubmitStatus) => {
+export const getBdayImage = async (query, setImages) => {
   const key = process.env.API_KEY;
   let images;
   try {
